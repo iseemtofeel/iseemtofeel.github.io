@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
       outputElement.innerHTML = `<div>${textContent}</div>`;
       outputElement.style.display = "flex";
 
-      button.style.display = "none"; // Hide the clicked button
       buttonContainer.style.display = "none"; // Hide the primary buttons
       secondaryButtons.style.display = "none"; // Hide the secondary buttons
 
