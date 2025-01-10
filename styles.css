@@ -39,14 +39,13 @@ body {
 }
 
 .item {
-  padding: 10px;
+  padding: 15px;
   background-color: black;
   color: white;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  width: 180px;
   height: 150px;
   display: flex;
   align-items: center;
