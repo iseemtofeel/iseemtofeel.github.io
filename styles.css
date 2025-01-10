@@ -24,14 +24,14 @@ body {
 /* Quote Style */
 .quote {
   cursor: pointer;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
   background-color: black; /* Black background for quote */
   color: white; /* White text */
-  width: 70%;
-  max-width: 500px;
+  width: 60%;
+  max-width: 400px;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -42,23 +42,23 @@ body {
 /* Grid Layout for Primary Buttons */
 .grid {
   display: none; /* Initially hidden */
-  gap: 15px;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; /* Reduced gap */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust to auto-fit and fit smaller buttons */
   width: 60%;
   margin-top: 20px;
   justify-content: center;
 }
 
 .item {
-  padding: 20px;
+  padding: 15px;
   background-color: black; /* Black button background */
   color: white; /* White text */
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.2rem;
-  width: 200px;
-  height: 150px;
+  font-size: 1.1rem; /* Slightly smaller font size */
+  width: 100%; /* Buttons take the full width of their container */
+  height: 120px; /* Adjusted height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@ body {
   background-color: white; /* White background for the text */
   color: black; /* Black text */
   border-radius: 5px;
-  width: 70%;
+  width: 60%;
   max-width: 700px;
   text-align: center;
   margin-top: 20px;
