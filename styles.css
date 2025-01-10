@@ -1,7 +1,8 @@
+/* Global Styles */
 body {
-  font-family: Menlo, monospace;
-  background-color: black;
-  color: white;
+  font-family: Arial, sans-serif;
+  background-color: white; /* White background for the page */
+  color: black; /* Black text */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,17 +16,30 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-}
-
-.quote {
-  cursor: pointer;
+  max-width: 900px; /* Ensure a max width for the content */
   padding: 20px;
-  border: 1px solid white;
-  border-radius: 5px;
   text-align: center;
 }
 
+/* Quote Style */
+.quote {
+  cursor: pointer;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  background-color: black; /* Black background for quote */
+  color: white; /* White text */
+  width: 70%;
+  max-width: 500px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.quote:hover {
+  background-color: #444; /* Highlight the quote button on hover */
+}
+
+/* Grid Layout for Primary Buttons */
 .grid {
   display: none; /* Initially hidden */
   gap: 15px;
@@ -37,8 +51,8 @@ body {
 
 .item {
   padding: 20px;
-  background-color: #444;
-  color: white;
+  background-color: black; /* Black button background */
+  color: white; /* White text */
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
@@ -48,33 +62,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease-in-out;
 }
 
+.item:hover {
+  background-color: #444; /* Highlight buttons on hover */
+}
+
+/* Output Text Style */
 .output {
   display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 800px; /* Makes the text box a bit narrower */
-  width: 80%; /* Ensures text doesn't stretch too wide */
   padding: 20px;
-  background-color: #333;
-  border-radius: 10px;
-}
-
-.output p {
-  font-size: 1.1rem;
-  text-align: center;
-  line-height: 1.5;
-  margin: 10px 0;
-}
-
-#back-btn {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #444;
-  color: white;
-  border: none;
+  background-color: white; /* White background for the text */
+  color: black; /* Black text */
   border-radius: 5px;
-  cursor: pointer;
+  width: 70%;
+  max-width: 700px;
+  text-align: center;
+  margin-top: 20px;
 }
