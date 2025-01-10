@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
       outputElement.innerHTML = `<div>${textContent}</div>`;
       outputElement.style.display = "flex";
 
-      buttonContainer.style.display = "none"; // Hide the primary buttons
-      secondaryButtons.style.display = "none"; // Hide the secondary buttons
+      // Hide all buttons
+      buttonContainer.style.display = "none";
+      secondaryButtons.style.display = "none";
 
       // Add a back button
       const backBtn = document.createElement("button");
@@ -60,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // After clicking all primary buttons, show secondary buttons
         if (primaryClickedCount === primaryItems.length) {
-          // The text will be displayed first before secondary buttons show
+          // Secondary buttons will appear only after text is displayed
+          secondaryButtons.style.display = "grid";
         }
       });
     });
