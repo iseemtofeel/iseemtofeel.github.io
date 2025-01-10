@@ -29,6 +29,14 @@ body {
   max-width: 600px;
 }
 
+.secondary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
 .item {
   padding: 20px;
   background-color: black;
