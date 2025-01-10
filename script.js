@@ -34,10 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".item").forEach((button) => {
     button.addEventListener("click", function () {
       showText(button);
+      button.style.display = "none";
       if (buttonContainer.contains(button)) {
         primaryClicks++;
-        button.style.display = "none";
-        if (primaryClicks === 4) secondaryButtons.style.display = "grid";
+        if (primaryClicks === 4) {
+          secondaryButtons.style.display = "grid";
+        }
       }
     });
   });
