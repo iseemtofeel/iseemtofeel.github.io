@@ -55,4 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
       handleButtonClick(item);
     });
   });
+
+  // Add event listeners to secondary buttons (Feel and Seem)
+  const secondaryItems = secondaryButtons.querySelectorAll(".item");
+  secondaryItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      handleButtonClick(item);
+    });
+  });
 });
