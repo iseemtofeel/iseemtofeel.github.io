@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const secondaryButtons = document.getElementById("secondary-buttons");
   const outputElement = document.querySelector(".output");
 
-  let primaryClickedCount = 0; // Track how many primary buttons have been clicked
-  let secondaryClickedCount = 0; // Track how many secondary buttons have been clicked
+  let primaryClickedCount = 0;
+  let secondaryClickedCount = 0;
 
   if (quoteElement && buttonContainer && secondaryButtons && outputElement) {
     // Show the primary grid when the quote is clicked
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to handle button clicks
     function handleButtonClick(button, isSecondary = false) {
-      const buttonText = button.textContent; // Get the text content of the clicked button
+      const textContent = button.getAttribute("data-text");
 
-      // Show the text content in the output area
-      outputElement.innerHTML = `<p>${buttonText}</p>`;
+      // Display text in the output
+      outputElement.innerHTML = `<div>${textContent}</div>`;
       outputElement.style.display = "flex";
 
       button.style.display = "none"; // Hide the clicked button
@@ -33,17 +33,17 @@ document.addEventListener("DOMContentLoaded", function () {
       backBtn.style.marginTop = "10px";
 
       backBtn.addEventListener("click", function () {
-        // Clear the displayed text when going back
+        // Clear the text when going back
         outputElement.style.display = "none";
-        outputElement.innerHTML = ""; // Clear the displayed content
+        outputElement.innerHTML = ""; // Clear the displayed text
 
         // Show the primary buttons if not all primary buttons have been clicked
         if (primaryClickedCount < 4) {
-          buttonContainer.style.display = "grid"; // Show primary buttons again
+          buttonContainer.style.display = "grid";
         } 
         // Show the secondary buttons if all primary buttons have been clicked
         else {
-          secondaryButtons.style.display = "grid"; // Show secondary buttons only after all primary buttons are clicked
+          secondaryButtons.style.display = "grid";
         }
 
         backBtn.remove(); // Remove the back button after going back
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // After clicking all primary buttons, show secondary buttons
         if (primaryClickedCount === primaryItems.length) {
-          // The text content will be displayed first before secondary buttons show
+          // The text will be displayed first before secondary buttons show
         }
       });
     });
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Hide secondary buttons if both are clicked
         if (secondaryClickedCount === secondaryItems.length) {
-          secondaryButtons.style.display = "none"; // Hide secondary buttons after both are clicked
+          secondaryButtons.style.display = "none";
         }
       });
     });
