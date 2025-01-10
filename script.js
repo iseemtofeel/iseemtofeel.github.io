@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const secondaryButtons = document.getElementById("secondary-buttons");
   const outputElement = document.querySelector(".output");
 
-  let primaryClicks = 0;
-
   // Handle first button
   quoteElement.addEventListener("click", function () {
     buttonContainer.style.display = "grid";
@@ -18,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     outputElement.innerHTML = `<div class="text-content">${text}</div>`;
     outputElement.style.display = "flex";
     buttonContainer.style.display = "none";
-    secondaryButtons.style.display = "none";
+    secondaryButtons.style.display = isLastPrimary ? "grid" : "none";
 
     const backButton = document.createElement("button");
     backButton.id = "back-btn";
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       showText(button, index === 3);
       button.style.display = "none";
-      primaryClicks++;
     });
   });
 
@@ -51,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("#secondary-buttons .item").forEach((button) => {
     button.addEventListener("click", function () {
       showText(button);
+      // Hide only the clicked button
       button.style.display = "none";
     });
   });
