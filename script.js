@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let primaryClicks = 0;
 
+  // Handle first button
   quoteElement.addEventListener("click", function () {
     buttonContainer.style.display = "grid";
     quoteElement.style.display = "none";
   });
 
-  function showText(button) {
+  // Function to display text and manage back functionality
+  function showText(button, isLastPrimary = false) {
     const text = button.getAttribute("data-text");
     outputElement.innerHTML = `<div class="text-content">${text}</div>`;
     outputElement.style.display = "flex";
@@ -23,24 +25,33 @@ document.addEventListener("DOMContentLoaded", function () {
     backButton.textContent = "Back";
     backButton.addEventListener("click", function () {
       outputElement.style.display = "none";
-      buttonContainer.style.display = primaryClicks < 4 ? "grid" : "none";
-      secondaryButtons.style.display = primaryClicks >= 4 ? "grid" : "none";
+
+      if (isLastPrimary) {
+        secondaryButtons.style.display = "grid";
+      } else {
+        buttonContainer.style.display = "grid";
+      }
+
       backButton.remove();
     });
 
     outputElement.appendChild(backButton);
   }
 
-  document.querySelectorAll(".item").forEach((button) => {
+  // Add click events for primary buttons
+  document.querySelectorAll("#button-container .item").forEach((button, index) => {
+    button.addEventListener("click", function () {
+      showText(button, index === 3);
+      button.style.display = "none";
+      primaryClicks++;
+    });
+  });
+
+  // Add click events for secondary buttons
+  document.querySelectorAll("#secondary-buttons .item").forEach((button) => {
     button.addEventListener("click", function () {
       showText(button);
       button.style.display = "none";
-      if (buttonContainer.contains(button)) {
-        primaryClicks++;
-        if (primaryClicks === 4) {
-          secondaryButtons.style.display = "grid";
-        }
-      }
     });
   });
 });
