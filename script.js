@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to handle button clicks
     function handleButtonClick(button, isSecondary = false) {
-      const gifSrc = button.getAttribute("data-src");
+      const buttonText = button.textContent; // Get the text content of the clicked button
 
-      // Show GIF when the button is clicked
-      outputElement.innerHTML = `<img src="${gifSrc}" alt="GIF">`;
+      // Show the text content in the output area
+      outputElement.innerHTML = `<p>${buttonText}</p>`;
       outputElement.style.display = "flex";
 
       button.style.display = "none"; // Hide the clicked button
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
       backBtn.style.marginTop = "10px";
 
       backBtn.addEventListener("click", function () {
-        // Clear the GIF when going back
+        // Clear the displayed text when going back
         outputElement.style.display = "none";
-        outputElement.innerHTML = ""; // Clear the displayed GIF
+        outputElement.innerHTML = ""; // Clear the displayed content
 
         // Show the primary buttons if not all primary buttons have been clicked
         if (primaryClickedCount < 4) {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // After clicking all primary buttons, show secondary buttons
         if (primaryClickedCount === primaryItems.length) {
-          // The GIF will be displayed first before secondary buttons show
+          // The text content will be displayed first before secondary buttons show
         }
       });
     });
