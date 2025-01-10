@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     outputElement.innerHTML = `<div class="text-content">${text}</div>`;
     outputElement.style.display = "flex";
     buttonContainer.style.display = "none";
-    secondaryButtons.style.display = isSecondary ? "grid" : "none";
+    secondaryButtons.style.display = isSecondary ? "none" : "none";
 
     const backButton = document.createElement("button");
     backButton.id = "back-btn";
@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
         secondaryButtons.style.display = "grid";
       } else {
         buttonContainer.style.display = "grid";
+
+        // Show secondary buttons only after "Back" from the 4th button
+        if (clickedPrimaryButtons === 4) {
+          secondaryButtons.style.display = "grid";
+        }
       }
 
       backButton.remove();
@@ -45,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
       button.style.display = "none";
       clickedPrimaryButtons++;
 
-      // Check if all primary buttons are clicked
+      // Do not show secondary buttons until back from the 4th button
       if (clickedPrimaryButtons === 4) {
-        secondaryButtons.style.display = "grid";
+        buttonContainer.style.display = "none"; // Hide primary buttons temporarily
       }
     });
   });
@@ -56,8 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("#secondary-buttons .item").forEach((button) => {
     button.addEventListener("click", function () {
       showText(button, true);
-      // Keep the other secondary button visible
-      button.style.display = "none";
+      button.style.display = "none"; // Hide the clicked secondary button
     });
   });
 });
